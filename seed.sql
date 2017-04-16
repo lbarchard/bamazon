@@ -1,6 +1,6 @@
 USE BamazonDB;
 
-INSERT INTO products (item_id, product_name, department_id, price, stock_quantity, product_sales)
+INSERT INTO products (product_id, product_name, department_id, price, stock_quantity, product_sales)
 VALUES  (1, "Shoes","1",50.00,30,0.00),
         (2, "Pants","1",40.00,20,0.00),
         (3, "Shirt","1",30.00,50,0.00),
