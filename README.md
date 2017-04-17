@@ -15,3 +15,8 @@ But if you are a power user you can access the same actions through the API.  Ju
 bamazon.postman_collection.json
 
 Happy shopping!
+
+****Don't want to shop but rather just [watch me shop](https://www.youtube.com/watch?v=mIiiQ3T_7OE)?
+
+
+
