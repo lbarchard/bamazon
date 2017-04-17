@@ -1,0 +1,25 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "An amazing buying experience",
+  "main": "bamazonCustomer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lbarchard/bamazon.git"
+  },
+  "author": "Les Barchard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lbarchard/bamazon/issues"
+  },
+  "homepage": "https://github.com/lbarchard/bamazon#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "mysql": "^2.13.0",
+    "express": "^3.0.1",
+    "inquirer": "^3.0.6"
+  },
+}
