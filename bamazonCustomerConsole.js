@@ -6,12 +6,16 @@ var customerDB  = require("./bamazonCustomerDB.js");
 
 var guideCustomer = function() {
     customerDB.getCatalog(null, function(items){
+        var choices = []
+        items.forEach(function(element) {
+            choices.push(element.product_id + " " + element.product_name + " " + element.price)
+        }, this);
         inquirer.prompt([
             {
                 type: 'list',
                 name: 'item',
                 message: 'Choose an item from the catalog',
-                choices: items
+                choices: choices
             },
             {
                 type: 'prompt',

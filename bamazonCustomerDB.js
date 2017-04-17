@@ -23,11 +23,7 @@ var getCatalog = function(department_id, callback) {
     }
     BamazonDB.query(sql,department_id, function(dbErr, dbRes) {
         if (dbErr) throw dbErr;
-            items = []
-            dbRes.forEach(function(element) {
-                items.push(element.product_id + " " + element.product_name + " " + element.price)
-            }, this);
-            callback(items);
+        callback(dbRes);
     });
 };
 
