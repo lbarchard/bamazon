@@ -1,3 +1,5 @@
+//file handles all RESTful API requests
+
 var express    = require('express');  
 var app        = express();     
 var bodyParser = require('body-parser');

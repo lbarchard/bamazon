@@ -1,9 +1,9 @@
+//file handles all console interaction
+
 var inquirer    = require("inquirer");
 var customerDB  = require("./bamazonCustomerDB.js");
 
-// customerDB.processSale(1,3);
-
-
+//main thread
 var guideCustomer = function() {
     customerDB.getCatalog(null, function(items){
         var choices = []
@@ -35,7 +35,7 @@ var guideCustomer = function() {
           console.log("**********************")
 
       }
-      guideCustomer()
+      guideCustomer() //allow them to order more
   })
 })
 })

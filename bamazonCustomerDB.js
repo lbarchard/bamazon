@@ -1,3 +1,5 @@
+//This file does all DB access
+
 var mysql      = require("mysql");
 
 var BamazonDB = mysql.createConnection({
