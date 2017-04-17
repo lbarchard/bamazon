@@ -33,34 +33,23 @@ router.get('/catalog', function(req, res) {
     });
 
 router.route('/sale')
-    // create a clozecard (accessed at POST http://localhost:8080/api/clozecards)
+    // complete a sale (accessed at POST http://localhost:8080/api/sale)
     .post(function(req, res) {
-        var clozeCard = {};
-        ClozeCard.call(clozeCard, req.body.fullText, req.body.cloze);
-        if (clozeCard.valid === true) {
-            delete clozeCard.valid;
-            flashCardDB.query(
-            "INSERT INTO cloze_flash_cards set ?",clozeCard,function (err, res) {
-                if (err) {
-                    throw err;
-                    //probably need something here to respond but with the fact things weren't created.  But not
-                    //really sure how these throw errors really work.
-                }
+        customerDB.processSale(req.body.productID, req.body.quantity, function(completedSale) {
+            if (completedSale) {
+                res.json({ 
+                    message: 'Sale recorded',
+                    success: true
+                });
             }
-            );
-            res.json({ 
-                message: 'Cloze card created!',
-                success: true
-            });
-        }
-        else {
-            res.json({
-                message: 'Cloze card was not valid, not created!',
+            else {
+                res.json({
+                message: 'Insufficient Inventory',
                 success: false
-            })
-        }
-        clozeCard = {};
-    });
+                })
+            }
+        })
+    })
         
 // REGISTER THE ROUTES -------------------------------
 // all of routes will be prefixed with /api
