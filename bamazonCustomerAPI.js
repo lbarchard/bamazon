@@ -24,7 +24,16 @@ router.use(function(req, res, next) {
     next(); // make sure we go to the next routes and don't stop here
 });
 
-router.get('/catalog', function(req, res) {
+// router.get('/catalog', function(req, res) {
+//         customerDB.getCatalog(null, function(items){
+//             res.json({
+//                 items
+//             });
+//         });
+//     });
+
+router.route('/catalog')
+    .get(function(req, res) {
         customerDB.getCatalog(null, function(items){
             res.json({
                 items
@@ -33,7 +42,6 @@ router.get('/catalog', function(req, res) {
     });
 
 router.route('/sale')
-    // complete a sale (accessed at POST http://localhost:8080/api/sale)
     .post(function(req, res) {
         customerDB.processSale(req.body.productID, req.body.quantity, function(completedSale) {
             if (completedSale) {
