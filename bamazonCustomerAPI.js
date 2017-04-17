@@ -45,10 +45,11 @@ router.route('/catalog')
 
 router.route('/sale')
     .post(function(req, res) {
-        customerDB.processSale(req.body.productID, req.body.quantity, function(completedSale) {
+        customerDB.processSale(req.body.productID, req.body.quantity, function(completedSale, total) {
             if (completedSale) {
                 res.json({ 
                     message: 'Sale recorded',
+                    total: total,
                     success: true
                 });
             }

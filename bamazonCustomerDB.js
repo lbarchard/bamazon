@@ -33,11 +33,11 @@ exports.getCatalog = getCatalog;
 
 
 var processSale = function(productID, quantity, callback) {
-    checkInventory(productID, quantity, function(enoughInventory){
+    checkInventory(productID, quantity, function(enoughInventory, total){
         if (enoughInventory) {
             postSale(productID, quantity, function(postedSuccessfully) {
                 if (postedSuccessfully) {
-                    callback(true);
+                    callback(true, total);
                 }
                 else {
                     callback(false);
@@ -54,10 +54,10 @@ var processSale = function(productID, quantity, callback) {
 exports.processSale = processSale;
 
 function checkInventory(productID, quantity, enoughInventory) {
-    var sql = "select stock_quantity from products where product_id = ?"
+    var sql = "select stock_quantity, price from products where product_id = ?"
     BamazonDB.query(sql,productID, function(dbErr, dbRes) {
         if (dbErr) throw dbErr;
-        enoughInventory(quantity <= dbRes[0].stock_quantity) ;
+        enoughInventory(quantity <= dbRes[0].stock_quantity, (dbRes[0].price)*quantity) ;
     });
  
 }

@@ -25,9 +25,10 @@ var guideCustomer = function() {
 ]).then(function (answers) {
   productID = answers.item.split(" ")[0];
   quantity = answers.quantity;
-  customerDB.processSale(productID, quantity, function(completedSale) {
+  customerDB.processSale(productID, quantity, function(completedSale, total) {
       if (completedSale) {
           console.log("Cha-Ching your order has been placed, order more!");
+          console.log("Your total is: " + total);
           console.log("**********************")
       }
       else {
