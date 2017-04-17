@@ -1,6 +1,8 @@
 //This file does all DB access
 
 var mysql      = require("mysql");
+var secureInfo  = require("./secureInfo.js");
+
 
 var BamazonDB = mysql.createConnection({
   host: "localhost",
@@ -10,7 +12,7 @@ var BamazonDB = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "Bmtsubs1!1",
+  password: secureInfo.password,
   database: "BamazonDB"
 });
 

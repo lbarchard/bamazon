@@ -4,6 +4,9 @@
 Getting started:
 *first create your database using the schema.sql file
 *second seed it with initial data using seed.sql
+*lastly you will need to create a secureInfo.js file
+'var password = "Put your own mySQL password here";
+exports.password = password;'
 **Now you are ready to rock!**
 
 Purchasing can be accessed both through console - simply follow the prompts after starting bamazonCustomer.js
