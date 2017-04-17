@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "bamazon",
+		"_postman_id": "ae5ad9c6-eabd-a3fb-3826-21259c5d2cf0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Catalog",
+			"request": {
+				"url": "http://localhost:8080/api/catalog",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "This returns a random cloze card from those that have been created"
+			},
+			"response": []
+		},
+		{
+			"name": "POST Sale",
+			"request": {
+				"url": "http://localhost:8080/api/sale",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"productID\": 2,\n\"quantity\": 2000\n}"
+				},
+				"description": "Creates a new cloze card flash card"
+			},
+			"response": []
+		}
+	]
+}
